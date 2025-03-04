@@ -1,0 +1,990 @@
+/*=============== RESET =============================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+/*=============== VARIABLES =============================*/
+:root {
+  --header-height: 4.5rem;
+
+  /* colors */
+  --base-color: #258947; /* Verde escuro */
+  --base-color-second: #3a9d5d; /* Um tom secundário mais claro */
+  --base-color-alt: #1e6f3f; /* Alternativo mais escuro */
+  --title-color: #000000; /* Tom mais escuro para títulos */
+  --text-color: #747474; /* Cinza padrão */
+  --text-color-light: #fafafa; /* Branco suave */
+  --body-color: #f8f8f8; /* Fundo claro */
+
+  /* Fonts */
+  --font-title-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
+}
+
+
+/*=============== BASE =============================*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font: 400 1rem var(--body-font);
+  color: var(--text-color);
+  background: var(--body-color);
+}
+
+.title {
+  font: 700 var(--font-title-size) var(--title-font);
+  -webkit-font-smoothing: auto;
+  color: var(--title-color);
+}
+
+.buttom {
+  background-color: var(--base-color-alt);
+  color: var(--text-color-light);
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1rem var(--body-font);
+  transition: background 0.3s;
+}
+
+.buttom:hover {
+  background: var(--base-color-second);
+}
+
+.divider-1 {
+  height: 3px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1) 0%,
+    hsla(var(--hue), 65%, 88%, 0.34) 100%
+  );
+}
+
+.divider-2 {
+  height: 3px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
+}
+
+/*=============== LAYOUT =============================*/
+.container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.section {
+  padding: calc(5rem + var(--header-height)) 0;
+}
+
+.section .title {
+  margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
+}
+
+.section header {
+  margin-bottom: 4rem;
+}
+
+.section header strong {
+  color: var(--base-color);
+}
+
+#header {
+  border-bottom: 1px solid rgb(61, 61, 61);
+  display: flex;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: var(--body-color);
+}
+
+#header.scroll {
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*===============  LOGO =============================*/
+.logo {
+  font: 700 1.1rem var(--title-font);
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+
+body {
+  margin: 0; /* Remove a margem padrão do body */
+}
+
+.logo {
+  display: flex; /* Usado para alinhar a imagem e o texto em linha */
+  align-items: center; /* Alinha verticalmente a imagem e o texto */
+  text-decoration: none; /* Remove o sublinhado do link */
+  color: black; /* Cor do texto (você pode ajustar conforme necessário) */
+  padding: 10px; /* Adiciona um pouco de espaço interno */
+}
+
+.logo img {
+  width: 3rem; /* Largura da imagem */
+  margin-right: 8px; /* Espaço entre a imagem e o texto */
+  position: relative; /* Permite a movimentação em relação ao seu local */
+  animation: move 4s linear infinite; /* Animação de movimento */
+}
+
+
+
+
+
+.logo-alt {
+  color: rgb(9, 5, 5);
+}
+
+.logo-alt span {
+  color: var(--body-color);
+}
+
+/*=============== NAVIGATIOM =============================*/
+nav {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.2s;
+}
+
+nav ul .menu {
+  display: none;
+}
+
+nav ul li a {
+  transition: color 0.3s;
+  position: relative;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--base-color);
+}
+
+nav ul li a::after {
+  content: '';
+  width: 0%;
+  height: 4px;
+  background: var(--base-color);
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+  transition: width 0.2s;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
+}
+
+nav .menu ul {
+  display: none;
+}
+
+/*=============== MENU MOBILE =============================*/
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+  background: var(--body-color);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-content: center;
+}
+
+nav.show .menu ul {
+  display: grid;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav.show ul.grid {
+  gap: 2rem;
+}
+
+/*=============== TOGGLE MENU =============================*/
+nav .icon-close {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  right: 1rem;
+  top: -1.5rem;
+  transition: 0.3s;
+}
+
+nav.show div.icon-close {
+  visibility: visible;
+  opacity: 1;
+  top: 1.5rem;
+}
+
+.toggle {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/*=============== HOME =============================*/
+#home {
+  overflow: hidden;
+}
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  left: 16.8%;
+  top: -16.8%;
+}
+
+#home .image img {
+  position: relative;
+  right: 2.95rem;
+}
+
+#home .image img,
+#home .image::before {
+  border-radius: 0.85rem;
+}
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#home .text h1 {
+  margin-bottom: 1rem;
+}
+
+#home .text p {
+  margin-bottom: 2rem;
+  max-width: 100%;
+}
+
+/*=============== ABOUT =============================*/
+
+#about {
+  background: rgb(235, 235, 235);
+}
+
+#about .container {
+  margin: 0;
+}
+
+#about .image {
+  position: relative;
+}
+
+#about .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  left: -33%;
+  top: -8.3%;
+}
+
+#about .image img {
+  position: relative;
+}
+
+#about .image img,
+#about .image::before {
+  border-radius: 0.85rem;
+}
+
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  color: black;
+}
+
+/*=============== SERVICES =============================*/
+.cards.grid {
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.753);
+  border-bottom: 0.35rem solid var(--base-color);
+  border-radius: 0.25rem 0.25rem 0 0;
+  text-align: center;
+}
+
+.card i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  color: var(--base-color);
+}
+
+.card .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.card:hover{
+  background: rgb(235, 235, 235);
+  cursor: pointer;
+  font-size: var(--title-color);
+  color: var(--base-color-alt);
+}
+
+/*=============== TATTOS =============================*/
+
+#tattoos {
+  background: rgb(235, 235, 235);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#tattoos .image img {
+  width: 18.7rem;
+  height: 18rem;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+#tattoos .image img:hover{
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+/*=============== TESTIMONIALS =============================*/
+#testimonials {
+  background: white;
+}
+
+#testimonials .container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#testimonials header {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0;
+}
+
+#testimonials blockquote {
+  padding: 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.8);
+  border-radius: 0.25rem;
+}
+
+#testimonials blockquote p {
+  position: relative;
+  text-indent: 1.875rem;
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+}
+
+#testimonials blockquote p span {
+  font: 700 2.5rem serif;
+  position: absolute;
+  top: -0.375rem;
+  left: -1.875rem;
+  color: var(--base-color);
+}
+
+#testimonials cite {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  color: hsl(0, 0%, 46%, 1);
+}
+
+#testimonials cite img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  clip-path: circle();
+  margin-right: 0.5rem;
+}
+
+/*======= SWIPER ==========*/
+.swiper-slide {
+  height: auto;
+  width: auto;
+  padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--base-color);
+}
+
+/*======= Payment ==========*/
+.pays.grid {
+  gap: 2rem;
+}
+
+.pay {
+  padding: 2rem;
+  margin: 2rem;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.753);
+  border: 0.168rem solid var(--base-color);
+  border-radius: 3rem;
+  text-align: center;
+}
+
+.pay img {
+  width: 2rem;
+}
+
+.pay h5 {
+  font-size: 1.2rem;
+}
+
+.pay:hover{
+   background: rgb(235, 235, 235);
+  cursor: pointer;
+  font-size: var(--title-color);
+  color: var(--base-color-alt);
+}
+
+/*=============== CONTACT =============================*/
+#contact {
+  background: rgb(235, 235, 235);
+}
+
+#contact.grid {
+  gap: 4rem;
+}
+
+#contact .text p {
+  margin-bottom: 2rem;
+}
+
+#contact .buttom i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#contact ul.grid {
+  gap: 2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+#contact ul li i {
+  color: var(--base-color);
+  margin-right: 0.625rem;
+}
+
+/*=============== FOOTER =============================*/
+footer {
+  background: var(--base-color);
+}
+
+footer.section {
+  padding: 4rem 0;
+}
+
+footer .logo {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+footer .brand p {
+  color: var(--text-color-light);
+  margin-bottom: 0.75rem;
+}
+
+footer i {
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+}
+
+footer .social a {
+  transition: 0.3s;
+  display: inline-block;
+}
+
+footer .social {
+  grid-auto-flow: column;
+  width: fit-content;
+}
+
+footer .social a:hover {
+  transform: translateY(-10px);
+}
+
+/*===== Back top =======*/
+.back-top {
+  background: var(--base-color);
+  color: var(--text-color-light);
+
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  padding: 0.4rem;
+  clip-path: circle();
+
+  font-size: 1.5rem;
+  line-height: 0;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  transform: translateY(100%);
+}
+
+.back-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*============= Responsivo =========================*/
+/* large devices: 768px > */
+@media (min-width: 768px) {
+ .container{
+   max-width: 730px;
+   margin-left: auto;
+   margin-right: auto;
+   font-size: 1.2rem;
+ }
+
+ .section{
+   padding: 10rem 0;
+ }
+
+  /* Layout */
+ main {
+    margin-top: var(--header-height);
+ }
+
+ /* Home */
+#home .image{
+ order: 0;
+ max-width: 50rem ;
+ 
+ align-items: left;
+}
+
+#home .text{
+ order: 1;
+ max-width: 50rem;
+ align-items: center;
+}
+
+.buttom{
+  height: 5rem;
+}
+ 
+ /* About */
+#about .image{
+  order: 1;
+  max-width: 40rem;
+  align-items: right;
+}
+
+#about .text{
+  order: 1;
+  max-width: 70rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
+  align-items: center; 
+}
+
+ /* Tattoos */
+ #tattoos .image{
+   grid-template-columns: 1fr 1fr;
+ }
+
+  /* Testimonials */
+ #testimonials {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+/* Contact */
+#contact .container{
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+/* Footer */
+footer .container{
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer .logo{
+  font-size: 2rem;
+}
+}
+
+/* large devices: 992px > */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 10rem 0;
+  }
+  
+ /* Navigation*/
+ nav .menu{
+   opacity: 1;
+   visibility: visible;
+   top: 0;
+ }
+
+ nav .menu ul{
+   display: flex;
+   gap: 1.5rem;
+ }
+
+ nav .menu ul li a.title{
+   font: 700 0.875rem var(--title-font);
+ }
+
+ nav .toggle{
+   display: none;
+ }
+
+ /* Layout */
+ main {
+  margin-top: var(--header-height);
+}
+
+ /* Home */
+
+#home .container{
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+ #home .image{
+   order: 1;
+   max-width: 40rem ;
+   align-items: right;
+ }
+
+ #home .text{
+   order: 0;
+   max-width: 30rem;
+   text-align: left;
+ }
+
+ /* About */
+#about .container {
+  grid-auto-flow: column;
+  margin: auto;
+}
+
+#about .image{
+  order: 0;
+  max-width: 40rem;
+  text-align: right;
+}
+
+#about .text{
+  order: 1;
+  max-width: 25rem;
+  text-align: left;
+}
+
+#about .image::before{
+  max-height: 15rem;
+}
+
+ /* Services */
+.cards{
+  grid-template-columns: 1fr 1fr;
+}
+
+ /* Tattoos */
+#tattoos .image{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+ /* Testimonials */
+#testimonials {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+ /* Payment */
+#payment .container{
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+/* Contact */
+#contact .container{
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+#contact .text{
+  order: 0;
+  max-width: 30rem; 
+}
+
+#contact .links{
+  order: 1;
+  max-width: 20rem;
+}
+
+/* Footer */
+footer .section{
+  padding: 3.658rem;
+}
+
+footer .container{
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+footer .logo{
+  font-size: 2rem;
+}
+
+}
+
+/* large devices: 1200px > */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header,
+  #testimonials header {
+    max-width: 30rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .buttom {
+    height: 3.125rem;
+  }
+
+  /* Navigation*/
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav .menu ul li a.title {
+    font: 700 1rem var(--title-font);
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+
+  /* Layout */
+  main {
+    margin-top: var(--header-height);
+  }
+
+  /* Home */
+  #home .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  #home .image {
+    order: 1;
+    max-width: 40rem;
+    text-align: right;
+  }
+
+  #home .text {
+    order: 0;
+    max-width: 30rem;
+    text-align: left;
+  }
+
+  /* About */
+  #about .container {
+    grid-auto-flow: column;
+    margin: 0 auto;
+  }
+
+  /* services */
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  /* tattoos */
+  #tattoos .container .image {
+    width: 10rem;
+    margin-left: -3.2rem;
+    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  /* testimonials */
+  #testimonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* contact */
+  #contact .container {
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  #contact .text {
+    max-width: 25rem;
+  }
+
+  /* footer */
+  footer .section {
+    padding: 3.75rem 0;
+  }
+
+  footer .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .logo {
+    font-size: 2.2rem;
+  }
+}
+.text {
+  text-align: center; /* Centraliza o texto dentro do div .text */
+}
+
+.buttom {
+  display: inline-block; /* Garante que o botão se comporte como um bloco em linha */
+  padding: 10px 20px; /* Ajusta o espaçamento interno do botão */
+  background-color: #333333; /* Cor de fundo do botão */
+  color: white; /* Cor do texto */
+  text-decoration: none; /* Remove o sublinhado */
+  border-radius: 5px; /* Arredonda os cantos do botão */
+  margin-top: 20px; /* Espaço acima do botão */
+}
+
+.buttom:hover {
+  background-color: #0056b3; /* Cor do botão ao passar o mouse */
+}
+/* Remover centralização dos textos */
+.text, .header, .subtitle, .title, .pays, .pay {
+  text-align: left;
+}
+
+/* Ajuste de alinhamento para cards */
+.cards .card {
+  text-align: left;
+}
+.icon-ate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px; /* Ajuste o tamanho conforme necessário */
+  height: 140px;
+  margin: 0 auto 10px;
+}
+
+.icon-mesa img {
+  width: 150%;
+  height: 150%;
+  object-fit: contain; /* Mantém a proporção da imagem */
+}
