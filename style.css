@@ -988,3 +988,8 @@ footer .logo{
   height: 150%;
   object-fit: contain; /* Mantém a proporção da imagem */
 }
+
+.logo img[src="assets/images/bb.png"] {
+  width: 190px; /* Ajuste a largura */
+  height: auto; /* Mantém a proporção */
+}
